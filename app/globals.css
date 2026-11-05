@@ -28,3 +28,29 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading), serif;
 }
+
+/* Replace the old marquee CSS in globals.css with this: */
+@keyframes marquee {
+  0% { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: marquee 12s linear infinite; /* Changed from 15s to 8s for faster speed */
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Stop the scrolling on screens md (768px) and larger */
+@media (min-width: 768px) {
+  .animate-marquee {
+    animation: none;
+    transform: none;
+  }
+}
