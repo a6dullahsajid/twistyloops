@@ -19,22 +19,29 @@ const Header = () => {
     <>
       {/* Announcement Banner */}
       <div
-        className={`banner bg-secondary font-body h-[48px] text-[#1E1716] pl-4 pr-4 md:pl-8 md:pr-8 text-[12px] transition-all duration-300 flex justify-center items-center text-center px-4 ${
-          isScrolled ? "h-0 opacity-0 overflow-hidden" : "h-12 opacity-100"
+        className={`grid bg-secondary text-[#1E1716] font-body text-[12px] overflow-hidden transition-all duration-300 ease-in-out ${
+          isScrolled
+            ? "grid-rows-[0fr] opacity-0"
+            : "grid-rows-[1fr] opacity-100"
         }`}
       >
-        <div className="animate-marquee gap-2 cursor-pointer md:w-full md:justify-center px-4">
-          <Link href="/products" className="announcement-text hover:underline">
-            Complimentary shipping on orders over ₹1,999 · Each piece made in
-            small batches.
-          </Link>
+        <div className="min-h-0 overflow-hidden">
+          <div className="h-12 px-4 md:px-8 flex justify-center items-center text-center">
+            <Link
+              href="/products"
+              className="announcement-text hover:underline animate-marquee md:animate-none"
+            >
+              Complimentary shipping on orders over ₹1,999 · Each piece made in
+              small batches.
+            </Link>
+          </div>
         </div>
       </div>
 
       {/* Navbar */}
       <div className="navbar h-[80px] flex justify-center gap-50 items-center px-5 border-b">
         {/* Left Navigation */}
-        <div className="nav-left justify-self-start font-body text-[14px]">
+        <div className="nav-left hidden justify-self-start font-body text-[14px]">
           <ul className="flex items-center gap-8">
             <li className="hover:underline">
               <Link href="/#hero">Shop</Link>
@@ -51,7 +58,7 @@ const Header = () => {
         </div>
 
         {/* Center Logo */}
-        <div className="nav-center flex flex-col items-center justify-center ">
+        <div className="nav-center flex flex-col items-center justify-center">
           <div className="flex justify-center items-center gap-4 text-[28px] uppercase">
             <h1>Twiisty</h1>
 
@@ -75,7 +82,7 @@ const Header = () => {
         </div>
 
         {/* Right Navigation */}
-        <div className="nav-right justify-self-end font-body text-[14px]">
+        <div className="nav-right hidden justify-self-end font-body text-[14px]">
           <ul className="flex items-center gap-8">
             <li className="hover:underline">
               <Link href="/aboutus">Custom Orders</Link>
